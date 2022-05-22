@@ -1,0 +1,79 @@
+.tabBar{
+    margin-top: 12px;
+}
+
+.tabItem{
+    cursor: pointer;
+    padding: 16px 32px;
+    background: transparent;
+    border: 0px;
+    border-bottom: solid 4px #e4e4e4;
+    font-size: 1em;
+}
+.tabItem:hover{
+    background: rgba(77, 178, 204,0.1);
+    
+}
+.tabItem.active{
+    border-bottom: solid 4px #4db2cc;
+    color:#4db2cc;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    background-color: #bdc3c7;
+    width: 350px;
+    height: 3px;
+    border-radius: 5px;
+    margin: 0 auto;
+    outline: 0;
+    margin-top: 50px;
+  }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #4db2cc;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+      transform: scale(1.1);
+}
+
+.tablesWrapper{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.tableWrapper{
+    background-color: #ffffff;
+    max-height: 500px;
+    overflow: auto;
+    min-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.listTable{
+width: 100%;
+}
+
+.listTable tr th, .listTable tr td{
+    padding: 8px 0;
+}

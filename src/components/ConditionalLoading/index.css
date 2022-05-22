@@ -1,0 +1,39 @@
+/* loading animation */
+.loader{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    animation: loader 0.9s ease alternate infinite;
+    animation-delay: 0.36s;
+    top: 50%;
+    margin: -42px auto 0 auto;
+}
+
+.loader::before, .loader::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: loader 0.9s ease alternate infinite;
+}
+
+.loader::before{
+    left: -40px;
+    animation-delay: 0.18s;
+}
+
+.loader::after{
+    right: -40px;
+    animation-delay: 0.54s;
+}
+
+@keyframes loader{
+    0%{
+        box-shadow: 0 20px 0 -20px #4db2cc;
+    }
+    100%{
+        box-shadow: 0 20px 0 #4db2cc;
+    }
+}
