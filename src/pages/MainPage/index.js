@@ -28,10 +28,8 @@ function MainPage(props) {
   const debounceConfidence = useDebounce(confidence);
 
   const regenerateSupport = async () => {
-    let minSupport = Math.ceil((support * uniqueItems.length) / 100);
-    let supportSets = await new Promise((resolve, reject) => {
-      resolve(generateSupport(minSupport, uniqueItems, transactionData));
-    });
+    let minSupport = Math.ceil((support * transactionData.length) / 100);
+    let supportSets = generateSupport(minSupport, uniqueItems, transactionData);
     console.log(supportSets);
     setSupportSets(supportSets);
     setIsLoading(false);
@@ -65,7 +63,6 @@ function MainPage(props) {
   }, [support, confidence]);
 
   useEffect(() => {
-    console.log(generateFPGrowthFrequentItemsets(support, transactionData));
     regenerateSupport().catch((err) => console.log(err));
     //eslint-disable-next-line
   }, [debounceSupport, transactionData]);

@@ -6,7 +6,7 @@ function ConfidencePage(props) {
       <div className="sliderWrapper">
         <input
           type="range"
-          min="10"
+          min="1"
           max="100"
           value={props.confidence}
           className="slider"

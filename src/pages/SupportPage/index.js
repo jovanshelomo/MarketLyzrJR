@@ -6,7 +6,7 @@ function SupportPage(props) {
       <div className="sliderWrapper">
         <input
           type="range"
-          min="30"
+          min="1"
           max="100"
           value={props.support}
           className="slider"
@@ -15,7 +15,7 @@ function SupportPage(props) {
         />
         <p>
           Min Support: {props.support}% (
-          {Math.ceil((props.support * props.uniqueItems.length) / 100)})
+          {Math.ceil((props.support * props.transactionData.length) / 100)})
         </p>
       </div>
       <ConditionalLoading isLoading={props.isLoading}>
