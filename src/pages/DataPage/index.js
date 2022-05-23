@@ -6,15 +6,16 @@ import ConditionalLoading from "../../components/ConditionalLoading";
 
 function DataPage(props) {
   const inputEl = useRef(null);
+  const dropAreaEl = useRef(null);
 
   function fileDragEnter(e) {
     e.preventDefault();
-    e.target.style.backgroundColor = "#f1f5fb";
+    dropAreaEl.current.style.backgroundColor = "#f1f5fb";
   }
 
   function fileDragLeave(e) {
     e.preventDefault();
-    e.target.style.backgroundColor = "#ffffff";
+    dropAreaEl.current.style.backgroundColor = "#ffffff";
   }
 
   function fileDragOver(e) {
@@ -26,7 +27,7 @@ function DataPage(props) {
     e.preventDefault();
     inputEl.current.files = e.dataTransfer.files;
     fileInputted();
-    e.target.style.backgroundColor = "#ffffff";
+    dropAreaEl.current.style.backgroundColor = "#ffffff";
   }
 
   function fileInputted() {
@@ -72,6 +73,7 @@ function DataPage(props) {
             onDragEnd={fileDragLeave}
             onDragOver={fileDragOver}
             onDrop={fileDrop}
+            ref={dropAreaEl}
           >
             <input
               className="uploadFileInput"

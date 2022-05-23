@@ -147,6 +147,7 @@ function MainPage(props) {
             confidence={confidence}
             setConfidence={setConfidence}
             uniqueItems={uniqueItems}
+            transactionLength={transactionData.length}
           />
         )}
       </div>
