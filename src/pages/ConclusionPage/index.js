@@ -40,8 +40,8 @@ export default function ConclusionPage(props) {
                         {liftSet.map((set, index2) => (
                           <tr key={index + "" + index2}>
                             <td>
-                              [{set.items[0].join(", ")}]&lt;=&gt;[
-                              {set.items[1].join(", ")}]
+                              {set.items[0].join(", ")} &lt;=&gt;{" "}
+                              {set.items[1].join(", ")}
                             </td>
                             <td
                               style={{

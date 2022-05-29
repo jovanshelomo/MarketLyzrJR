@@ -1,5 +1,6 @@
-.tabBar{
-    margin-top: 12px;
+.container-main{
+    min-height: 100%;
+    flex: 1;
 }
 
 .tabItem{
@@ -19,8 +20,6 @@
     color:#4db2cc;
     font-weight: bold;
 }
-
-
 
 .tablesWrapper{
     display: flex;

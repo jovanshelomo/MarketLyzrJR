@@ -23,7 +23,7 @@ export function useDebounce(value, delay = 1000) {
 
 //generate color between red and green for input value
 export function colorMapGenerator(value) {
-  //generalize value
+  //generalize value constraints
   let generalizedValue = value / 1.5;
   if (generalizedValue > 1) {
     generalizedValue = 1;

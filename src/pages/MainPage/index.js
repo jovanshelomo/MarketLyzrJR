@@ -4,13 +4,9 @@ import ConfidencePage from "../ConfidencePage";
 import SupportPage from "../SupportPage";
 import { useEffect, useState } from "react";
 import ConclusionPage from "../ConclusionPage";
-import {
-  generateSupport,
-  generateConfidence,
-  generateLift,
-} from "../../Services/apriori";
-import { generateFPGrowthFrequentItemsets } from "../../Services/fpgrowth";
 import { useDebounce } from "../../Services/etc";
+import Apriori from "../../Services/apriori/Apriori";
+import Footer from "../../components/Footer";
 function MainPage(props) {
   let [activeTab, setActiveTab] = useState(1);
   const [fileName, setFileName] = useState(null);
@@ -27,9 +23,17 @@ function MainPage(props) {
   const debounceSupport = useDebounce(support);
   const debounceConfidence = useDebounce(confidence);
 
+  const regenerateUniqueItems = () => {
+    setUniqueItems(Apriori.generateUniqueItems(transactionData));
+  };
+
   const regenerateSupport = async () => {
     let minSupport = Math.ceil((support * transactionData.length) / 100);
-    let supportSets = generateSupport(minSupport, uniqueItems, transactionData);
+    let supportSets = Apriori.generateSupportSet(
+      minSupport,
+      uniqueItems,
+      transactionData
+    );
     console.log(supportSets);
     setSupportSets(supportSets);
     setIsLoading(false);
@@ -37,7 +41,7 @@ function MainPage(props) {
 
   const regenerateConfidence = async () => {
     let minConfidence = confidence;
-    let confidenceSets = generateConfidence(
+    let confidenceSets = Apriori.generateConfidenceSet(
       minConfidence,
       supportSets,
       transactionData
@@ -48,7 +52,7 @@ function MainPage(props) {
   };
 
   const regenerateLift = async () => {
-    let liftSets = generateLift(
+    let liftSets = Apriori.generateLiftSet(
       supportSets,
       confidenceSets,
       transactionData.length
@@ -59,13 +63,18 @@ function MainPage(props) {
   };
 
   useEffect(() => {
+    regenerateUniqueItems();
+    //eslint-disable-next-line
+  }, [transactionData]);
+
+  useEffect(() => {
     setIsLoading(true);
-  }, [support, confidence]);
+  }, [support, confidence, transactionData]);
 
   useEffect(() => {
     regenerateSupport().catch((err) => console.log(err));
     //eslint-disable-next-line
-  }, [debounceSupport, transactionData]);
+  }, [debounceSupport, uniqueItems]);
 
   useEffect(() => {
     regenerateConfidence().catch((err) => console.log(err));
@@ -79,7 +88,7 @@ function MainPage(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container-main">
         <div className="tabBar">
           <button
             className={"tabItem" + (activeTab === 1 ? " active" : "")}
@@ -151,6 +160,7 @@ function MainPage(props) {
           />
         )}
       </div>
+      <Footer />
     </>
   );
 }

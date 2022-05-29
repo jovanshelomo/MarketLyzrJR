@@ -1,7 +1,6 @@
 import { fileParser } from "../../Services/fileHandler";
 import "./index.css";
-import { useRef, useState } from "react";
-import { generateUniqueItems } from "../../Services/apriori";
+import { useRef } from "react";
 import ConditionalLoading from "../../components/ConditionalLoading";
 
 function DataPage(props) {
@@ -54,7 +53,6 @@ function DataPage(props) {
     props.setNotSupportedInfo(false);
     fileParser(file).then((result) => {
       props.setTransactionData(result);
-      props.setUniqueItems(generateUniqueItems(result));
     });
     props.setIsLoading(true);
   }

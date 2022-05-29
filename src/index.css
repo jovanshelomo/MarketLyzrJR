@@ -3,6 +3,7 @@ body {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 button{
   font-family: 'Nunito', sans-serif;
@@ -10,4 +11,8 @@ button{
 }
 html{
   background-color: #eff8ff;
+}
+
+.root{
+  min-height: 100vh;
 }
