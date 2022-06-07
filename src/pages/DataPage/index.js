@@ -64,9 +64,20 @@ function DataPage(props) {
           <h1>Upload Transaction Data</h1>
         </div>
         <div className="blockContainer">
-          <b>HOW TO USE</b><br/>
-          1. choose a file with extension <strong>.csv</strong> or <strong>.xlsx</strong>. example: <a href="/testData.csv" download="testData">.csv</a>, <a href="/testData.xlsx" download="testData">.xlsx</a> <br/>
-          2. you can analyze support and confidence by yourself or jump straight to conclusion
+          <b>HOW TO USE</b>
+          <br />
+          1. choose a file with extension <strong>.csv</strong> or{" "}
+          <strong>.xlsx</strong>. example:{" "}
+          <a href="./testData.csv" download="testData">
+            .csv
+          </a>
+          ,{" "}
+          <a href="./testData.xlsx" download="testData">
+            .xlsx
+          </a>{" "}
+          <br />
+          2. you can analyze support and confidence by yourself or jump straight
+          to conclusion
         </div>
         <div className="blockContainer uploadFileContainer">
           <div
